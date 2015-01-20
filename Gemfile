@@ -39,6 +39,14 @@ gem 'autoprefixer-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Used for testing
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  # USer simulation
+  gem 'capybara'
+end
+
+group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
