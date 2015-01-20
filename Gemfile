@@ -42,7 +42,7 @@ group :development, :test do
   # Used for testing
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  # USer simulation
+  # User simulation
   gem 'capybara'
 end
 
