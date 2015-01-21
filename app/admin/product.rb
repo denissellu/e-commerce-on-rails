@@ -7,9 +7,9 @@ ActiveAdmin.register Product do
       f.input :name, :label => "Product Name"
       f.input :description, :label => "Description"
       f.input :image, :label => "Product Image"
-      f.input :price, :label => "Active / Inactive"
+      f.input :price, :label => "Price £"
       # f.input :availability, :label => "Active / Inactive"
-      f.input :availability, as: :datepicker, datepicker_options: { min_date: "2013-10-8",        max_date: "+3D" }
+      f.input :availability, as: :datepicker
       f.input :status, :label => "Active / Inactive"
       f.input :category
     end

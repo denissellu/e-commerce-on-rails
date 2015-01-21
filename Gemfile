@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap used for styling
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,8 +43,10 @@ gem 'autoprefixer-rails'
 group :development, :test do
   # Used for testing
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-its'
+  gem 'fabrication'
   # User simulation
   gem 'capybara'
 end
