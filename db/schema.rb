@@ -110,9 +110,6 @@ ActiveRecord::Schema.define(version: 20150121142926) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

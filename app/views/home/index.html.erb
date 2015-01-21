@@ -1,27 +1,42 @@
-<div class="container">
-    <% @categories.each do |category| %>
 
-    <div class="row">
+<div class="container">
+
+
+
+
+
+
+
+<% @categories.each_with_index do |category,i| %>
+ <div class="row">
         <div class="row">
             <div class="col-md-9">
-                <h3><%= category.name %> </h3>
+                <h3>
+                    <%= category.name %></h3>
             </div>
             <div class="col-md-3">
                 <!-- Controls -->
                 <div class="controls pull-right hidden-xs">
-                    <a class="left glyphicon glyphicon-chevron-left btn btn-primary" href="#carousel-example-generic"
-                        data-slide="prev"></a><a class="right glyphicon glyphicon-chevron-right btn btn-primary" href="#carousel-example-generic"
+                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-<%= i %>"
+                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-<%= i %>"
                             data-slide="next"></a>
                 </div>
             </div>
         </div>
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div id="carousel-<%= i %>" class="carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
+
+             <%  Product.where(category_id: category.id).active.each_slice(4).with_index  {|productGroup,index| %>
+<% if index == 0 %>
+                    <div class="item active"> <!-- New item Set -->
+                <% else %>
+                    <div class="item"> <!-- New item Set -->
+                <% end %>
+
                     <div class="row">
-                        <% Product.where(category_id: category.id).active.each do |product| %>
-                        <div class="col-sm-4">
+                    <% productGroup.each do |product| %>
+                        <div class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
                                     <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
@@ -38,23 +53,22 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-add">
-                                            <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a></p>
+                                            <i class="fa fa-shopping-cart"></i><a href=#" class="hidden-sm">Add to cart</a></p>
                                         <p class="btn-details">
-                                            <i class="glyphicon glyphicon-list"></i><a href="#" class="hidden-sm">More details</a></p>
+                                            <i class="fa fa-list"></i><a href=#" class="hidden-sm">More details</a></p>
                                     </div>
                                     <div class="clearfix">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                       
                         <% end %>
-                        
+
                     </div>
                 </div>
+                <% } %>
             </div>
         </div>
     </div>
-    <% end %>
-
+<% end %>
 </div>

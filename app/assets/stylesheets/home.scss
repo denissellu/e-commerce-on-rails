@@ -1,3 +1,81 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//colors
+$bon_jour: #e1e1e1;
+$white: #fff;
+$beige: #f5f5dc;
+$curious_blue: #219fd1;
+$tapa: #777;
+
+.col-item {
+	border: 1px solid #E1E1E1;
+	border-radius: 5px;
+	background: #FFF;
+	.info {
+		padding: 10px;
+		border-radius: 0 0 5px 5px;
+		margin-top: 1px;
+		.rating {
+			color: $tapa;
+		}
+	}
+	.price {
+		float: left;
+		margin-top: 5px;
+		h5 {
+			line-height: 20px;
+			margin: 0;
+		}
+	}
+	.rating {
+		float: left;
+		font-size: 17px;
+		text-align: right;
+		line-height: 52px;
+		margin-bottom: 10px;
+		height: 52px;
+	}
+	.separator {
+		border-top: 1px solid #E1E1E1;
+		p {
+			line-height: 20px;
+			margin-bottom: 0;
+			margin-top: 10px;
+			text-align: center;
+			i {
+				margin-right: 5px;
+			}
+		}
+	}
+	.btn-add {
+		width: 50%;
+		float: left;
+		border-right: 1px solid #E1E1E1;
+	}
+	.btn-details {
+		width: 50%;
+		float: left;
+		padding-left: 10px;
+	}
+	.photo img {
+		margin: 0 auto;
+		width: 100%;
+	}
+	&:hover .info {
+		background-color: #F5F5DC;
+	}
+}
+.price-text-color {
+	color: #219FD1;
+}
+.clear-left {
+	clear: left;
+}
+.controls {
+	margin-top: 20px;
+}
+[data-slide="prev"] {
+	margin-right: 10px;
+}

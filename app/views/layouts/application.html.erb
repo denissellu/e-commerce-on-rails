@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ECommerceOnRails</title>
+  <title>E-Commerce On Rails</title>
   <%= stylesheet_link_tag "application",:media => 'all' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Vary simple cart in ruby on rails">
   <meta name="author" content="Denis Sellu">
 </head>
 <body>
@@ -42,36 +42,39 @@
 							</ul>
 						</li>
 					</ul>
-					
+
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">Cart</a>
+							<a href="#"><i class="glyphicon glyphicon-shopping-cart"> </i>cart</a>
 						</li>
+					<% if user_signed_in? %>
+
 						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<strong class="caret"></strong></a>
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= (current_user.first_name).capitalize  %> <br />Your Account<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
+									<a href="#">Addresses</a>
 								</li>
 								<li class="divider">
-								</li>
 								<li>
-									<a href="#">Separated link</a>
+  									<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
 								</li>
+				
 							</ul>
 						</li>
+					<% else %>
+					<li>
+						<%= link_to 'Login', new_user_session_path %>
+					</li><li>
+						<%= link_to 'Sign up', new_user_registration_path %>
+					</li>
+<% end %>
 					</ul>
 				</div>
 				
 			</nav>
 <%= yield %>
-
+<a href="" src></a>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
