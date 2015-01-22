@@ -38,6 +38,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  # 
+  #
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # Paperclip.options[:command_path] = "A:\\Windows\\System32\\convert.exe"
+  Paperclip.options[:command_path] = 'A:/Program Files/ImageMagick-6.8.9-Q16'
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'ec-on-rails',
+      :access_key_id => 'AKIAJKUUQLQDCL6VGCOA',
+      :secret_access_key => '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'
+    }
+  }
 end

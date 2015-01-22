@@ -1,74 +1,71 @@
-
 <div class="container">
-
-
-
-
-
-
-
-<% @categories.each_with_index do |category,i| %>
- <div class="row">
+    <% @categories_home.each_with_index do |category,i| %>
         <div class="row">
-            <div class="col-md-9">
-                <h3>
-                    <%= category.name %></h3>
-            </div>
-            <div class="col-md-3">
-                <!-- Controls -->
-                <div class="controls pull-right hidden-xs">
-                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-<%= i %>"
-                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-<%= i %>"
-                            data-slide="next"></a>
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>
+                        <%= category.name %></h3>
+                </div>
+                <div class="col-md-3">
+                    <!-- Controls -->
+                    <div class="controls pull-right hidden-xs">
+                        <a class="left fa fa-chevron-left btn btn-success" href="#carousel-<%= i %>"
+                            data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-<%= i %>"
+                                data-slide="next"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="carousel-<%= i %>" class="carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div id="carousel-<%= i %>" class="carousel slide hidden-xs" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
 
-             <%  Product.where(category_id: category.id).active.each_slice(4).with_index  {|productGroup,index| %>
-<% if index == 0 %>
-                    <div class="item active"> <!-- New item Set -->
-                <% else %>
-                    <div class="item"> <!-- New item Set -->
-                <% end %>
+                 <%  Product.where(category_id: category.id).available?.active.each_slice(4).with_index  {|productGroup,index| %>
+                    <% if index == 0 %>
+                        <div class="item active"> <!-- New item Set -->
+                    <% else %>
+                        <div class="item"> <!-- New item Set -->
+                    <% end %>
 
-                    <div class="row">
-                    <% productGroup.each do |product| %>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="photo">
-                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>
-                                                <%= product.name %></h5>
-                                            <h5 class="price-text-color">
-                                                &pound;<%= product.price %></h5>
+                        <div class="row">
+                        <% productGroup.each do |product| %>
+                            <div class="col-sm-3">
+                                <div class="col-item">
+                                    <div class="photo">
+                                        <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-6">
+                                                <h5>
+                                                    <%= product.name %></h5>
+                                                <h5 class="price-text-color">
+                                                    &pound;<%= product.price %></h5>
+                                            </div>
+                                            
                                         </div>
-                                        
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href=#" class="hidden-sm">Add to cart</a></p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href=#" class="hidden-sm">More details</a></p>
-                                    </div>
-                                    <div class="clearfix">
+                                        <div class="separator clear-left">
+                                            <p class="btn-add">
+                                                <i class="fa fa-shopping-cart"></i><a href"=#" class="hidden-sm">Add to Basket</a></p>
+                                            <p class="btn-details">
+                                                <i class="fa fa-list"></i>
+                                                <%= link_to("More details", :controller => 'products', :action => 'show', :id => product.id) %>
+
+                                                <!-- <a href"=#" class="hidden-sm">More details</a> -->
+
+                                                </p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <% end %>
+                            <% end %>
 
+                        </div>
                     </div>
+                    <% } %>
                 </div>
-                <% } %>
             </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
 </div>

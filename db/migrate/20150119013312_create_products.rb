@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.references :category
       t.string :name
       t.text :description
-      t.string :image
+      # t.string :image
       t.decimal :price ,:precision => 6, :scale => 2
       t.date :availability
       t.boolean :status

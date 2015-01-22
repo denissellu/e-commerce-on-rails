@@ -1,0 +1,16 @@
+<div class="categories index">
+  <h2>categories</h2>
+
+  <table class="listing" summary="category list">
+    <tr class="header">
+      <th>category</th>
+
+    </tr>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      
+    </tr>
+    <% end %>
+  </table>
+</div>

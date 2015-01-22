@@ -17,4 +17,7 @@ class UsersController < ApplicationController
 	def update
 		
 	end
+	def avatar
+		@user =	current_user	
+	end
 end

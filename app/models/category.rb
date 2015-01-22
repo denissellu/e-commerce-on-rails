@@ -10,4 +10,5 @@ class Category < ActiveRecord::Base
   scope :inactive, lambda {where(:status => false)}
   scope :sorted, lambda { order("categories.id ASC")}
   scope :newest_first, lambda { order("categories.created_at DESC")}
+  scope :parent_cat, lambda { where(:parent_id => nil)}
 end

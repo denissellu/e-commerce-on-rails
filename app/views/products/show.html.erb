@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="content-wrapper">	
+		<div class="item-container">	
+			<div class="container">	
+				<div class="col-md-12">
+					<div class="product col-md-3 service-image-left">
+                    
+						<center>
+							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt=""></img>
+						</center>
+					</div>
+				</div>
+					
+				<div class="col-md-7">
+					<div class="product-title"><%= @product.name %></div>
+					<div class="product-desc"><%= @product.description %></div>
+					<hr>
+					<div class="product-price">&pound;<%= @product.price %></div>
+					<% if @product.availability < Date.today%>
+						<div class="product-avaliable">Avaliable</div>
+					<% else %>
+						<div class="product-notavaliable">Not Avaliable</div>
+					<% end %>
+					<hr>
+					<div class="btn-group cart">
+						<button type="button" class="btn btn-success">
+							<%= link_to("Add to Basket", :controller => 'basket', :action => 'add', :id => product.id) %>
+
+						</button>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>

@@ -17,3 +17,6 @@ User.populate 10 do |user|
   user.email = Faker::Internet.free_email
   user.encrypted_password = User.new(:password => password).encrypted_password
 end
+
+# AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+

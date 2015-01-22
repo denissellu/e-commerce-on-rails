@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
 
   def index
-  	@categories = Category.sorted.visible_homepage.active
+		@categories_home = Category.sorted.active.visible_homepage
   end
 
   private

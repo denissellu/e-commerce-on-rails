@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121142926) do
+ActiveRecord::Schema.define(version: 20150121224125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,11 +89,15 @@ ActiveRecord::Schema.define(version: 20150121142926) do
     t.string   "name"
     t.text     "description"
     t.string   "image"
-    t.decimal  "price",        precision: 6, scale: 2
+    t.decimal  "price",              precision: 6, scale: 2
     t.date     "availability"
     t.boolean  "status"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "products", ["image"], name: "index_products_on_image", using: :btree
@@ -110,6 +114,10 @@ ActiveRecord::Schema.define(version: 20150121142926) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

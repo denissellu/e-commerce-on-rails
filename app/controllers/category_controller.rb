@@ -1,6 +1,6 @@
 class CategoryController < ApplicationController
 	def index
-		@categories = Category.sorted.active
+		@categories_home = Category.sorted.active.visible_homepage
 	end
 	def show
 		

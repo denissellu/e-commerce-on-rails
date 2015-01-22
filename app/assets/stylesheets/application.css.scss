@@ -15,6 +15,11 @@
  * 
  */
 
+$white: #fff;
+$grey-ish: #333;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "home"
+@import "home";
+@import "products";
+@import "basket"
