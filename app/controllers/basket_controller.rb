@@ -46,6 +46,12 @@ class BasketController < ApplicationController
     redirect_to '/basket'
   end
 
+  def complete
+    @basket.update_progress(3)
+    Basket.order_complete_mail(@basket).deliver_now
+    redirect_to '/'
+  end
+
 
   protected
 

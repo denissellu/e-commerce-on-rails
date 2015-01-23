@@ -49,7 +49,6 @@ group :development, :test do
   # gem 'factory_girl_rails'
   gem 'faker'
   gem 'populator'
-
   gem 'rspec-its'
   gem 'fabrication'
   # User simulation

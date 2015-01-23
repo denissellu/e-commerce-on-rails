@@ -12,14 +12,14 @@
 		</select>
 		<br>
 		<br>
-		<button type="button" class="btn btn-success">Complete order</button>	
+		<a href="/basket/complete" role="button" class="btn btn-success">Complete order</a>	
 	</div>
 	<hr>
 	<h3>
 		Or add new address
 		<button class="btn btn-success btn-md" data-title="New" data-toggle="modal" data-target="#add-new"><span class="glyphicon glyphicon-plus"></span></button>
 	</h3>
-<%= render :partial => "address/new_address_modal" %>
+	<%= render :partial => "address/new_address_modal" %>
 	</div>
 
 </div>
