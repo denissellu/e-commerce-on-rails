@@ -1,0 +1,17 @@
+<div class="modal fade" id="add-new">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+        <h4 class="modal-title">Add New address</h4>
+      </div>
+      <div class="modal-body">
+        <%= render :partial => "form",:locals => {:form_type => 'new', :values => ''} %>
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary save_new_address">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

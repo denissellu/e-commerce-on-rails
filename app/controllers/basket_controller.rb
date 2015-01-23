@@ -6,7 +6,7 @@ class BasketController < ApplicationController
   def add
 
     product = Product.find(params[:id])
-    session[:basket_id] = @basket.id
+    
     # Check to see if the product exist on this order, if so incrment quantity
     order_product = OrdersProduct.product_exsit?(params[:id],session[:basket_id]).first
     if order_product.blank?
@@ -16,6 +16,7 @@ class BasketController < ApplicationController
       self.update_quantity(order_product.id,quantity)
     end
     @basket.calculate_total
+    @basket.update_progress(1)
     redirect_to '/basket'
   end
 

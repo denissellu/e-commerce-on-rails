@@ -1,0 +1,20 @@
+<div class="modal fade" id="edit">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+            </div>
+            <div class="modal-body">
+            <input type="hidden" class="address_update" name="" value="">
+                <%= render :partial=> "form",:locals => {:form_type => 'edit', :values => ''} %>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-warning btn-lg update_address" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

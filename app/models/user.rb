@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :validatable
 
   has_many :orders
+  has_many :addresses
 end

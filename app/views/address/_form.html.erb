@@ -1,0 +1,39 @@
+<form class="form-horizontal" role="form">
+    <fieldset>
+
+        <legend>Details</legend>
+        <!--Name -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">First Name</label>
+            <div class="col-sm-4">
+            <input type="hidden" name="" id="input" class="form-control user_id_address" value="<%= current_user.id %>">
+                <input type="text" placeholder="First Name" class="form-control <%=form_type %>_address_first_name">
+            </div>
+
+            <label class="col-sm-2 control-label" for="textinput">Last Name</label>
+            <div class="col-sm-4">
+                <input type="text" placeholder="Last Name" class="form-control <%=form_type %>_address_last_name">
+            </div>
+        </div>
+        <!-- Form Name -->
+     
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Address</label>
+            <div class="col-sm-10">
+
+                <textarea name="" id="" cols="30" rows="10" class="form-control <%=form_type %>_address_field" placeholder="Address"></textarea>
+            </div>
+        </div>
+
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Phone Number</label>
+            <div class="col-sm-10">
+                <input type="text" placeholder="Phone Number"  placeholder="phone" class="form-control <%=form_type %>_address_phone_number">
+            </div>
+        </div>
+
+    </fieldset>
+</form>

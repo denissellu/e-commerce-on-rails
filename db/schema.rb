@@ -32,8 +32,11 @@ ActiveRecord::Schema.define(version: 20150121224125) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "addresses", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
     t.text     "address_field"
+    t.string   "phone_number"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -64,10 +67,10 @@ ActiveRecord::Schema.define(version: 20150121224125) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.boolean  "status"
-    t.integer  "total_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "status",                              default: 0
+    t.decimal  "total_price", precision: 6, scale: 2
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   create_table "orders_products", force: :cascade do |t|
@@ -99,8 +102,8 @@ ActiveRecord::Schema.define(version: 20150121224125) do
   add_index "products", ["price"], name: "index_products_on_price", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
     t.string   "email",                               null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

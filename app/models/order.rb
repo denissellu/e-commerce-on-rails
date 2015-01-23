@@ -11,7 +11,13 @@ class Order < ActiveRecord::Base
   ##
 
   def calculate_total
-    self.total_price = orders_products.inject(0.0){|sum, orders_products| sum += orders_products.price }
+    self.total_price = orders_products.inject(0.0){|sum, orders_products| 
+      sum += orders_products.price 
+    }
+    save!
+  end
+  def update_progress(progress)
+    self.status = progress
     save!
   end
 end

@@ -21,18 +21,20 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
+					<% if !@basket.nil? %>
 						<li>
 
 							<a href="/basket" class="basket_nav"><i class="glyphicon glyphicon-shopping-cart"> </i> <span class="basket_count"><%= @basket.orders_products.size %></span> basket</a>
 
 						</li>
+						<% end %>
 					<% if user_signed_in? %>
 
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= (current_user.first_name).capitalize  %> <br />Your Account<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">Addresses</a>
+									<a href="/address">Addresses</a>
 								</li>
 								<li class="divider">
 								<li>
