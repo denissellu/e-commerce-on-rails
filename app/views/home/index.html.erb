@@ -45,12 +45,13 @@
                                         </div>
                                         <div class="separator clear-left">
                                             <p class="btn-add">
-                                                <i class="fa fa-shopping-cart"></i><a href"=#" class="hidden-sm">Add to Basket</a></p>
+                                         
+                                            <%= link_to(raw('<i class="fa fa-shopping-cart"></i> Add to Basket'), {:id => ''}, class: "hidden-sm add_to_basket",remote: true) %>
+
+                                            </p>
                                             <p class="btn-details">
                                                 <i class="fa fa-list"></i>
                                                 <%= link_to("More details", :controller => 'products', :action => 'show', :id => product.id) %>
-
-                                                <!-- <a href"=#" class="hidden-sm">More details</a> -->
 
                                                 </p>
                                         </div>

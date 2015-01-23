@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(version: 20150121224125) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,10 +70,11 @@ ActiveRecord::Schema.define(version: 20150121224125) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "orders_products", id: false, force: :cascade do |t|
+  create_table "orders_products", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
     t.integer "quantity"
+    t.decimal "price",      precision: 6, scale: 2
   end
 
   add_index "orders_products", ["order_id"], name: "index_orders_products_on_order_id", using: :btree
@@ -88,7 +84,6 @@ ActiveRecord::Schema.define(version: 20150121224125) do
     t.integer  "category_id"
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.decimal  "price",              precision: 6, scale: 2
     t.date     "availability"
     t.boolean  "status"
@@ -100,7 +95,6 @@ ActiveRecord::Schema.define(version: 20150121224125) do
     t.datetime "image_updated_at"
   end
 
-  add_index "products", ["image"], name: "index_products_on_image", using: :btree
   add_index "products", ["name"], name: "index_products_on_name", using: :btree
   add_index "products", ["price"], name: "index_products_on_price", using: :btree
 

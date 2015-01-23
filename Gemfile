@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap used for styling
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem "animate-rails"
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 

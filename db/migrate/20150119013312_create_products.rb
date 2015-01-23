@@ -12,6 +12,5 @@ class CreateProducts < ActiveRecord::Migration
     end
     add_index :products, :name
     add_index :products, :price
-    add_index :products, :image
   end
 end

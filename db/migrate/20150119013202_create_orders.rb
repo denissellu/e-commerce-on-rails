@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.references :user
       t.boolean :status
-      t.integer :total_price , :precision => 6, :scale => 2
+      t.decimal :total_price , :precision => 6, :scale => 2
       t.timestamps null: false
     end
     

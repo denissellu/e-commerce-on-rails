@@ -22,7 +22,9 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="/basket"><i class="glyphicon glyphicon-shopping-cart"> </i>basket</a>
+
+							<a href="/basket" class="basket_nav"><i class="glyphicon glyphicon-shopping-cart"> </i> <span class="basket_count"><%= @basket.orders_products.size %></span> basket</a>
+
 						</li>
 					<% if user_signed_in? %>
 

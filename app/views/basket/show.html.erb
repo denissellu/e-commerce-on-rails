@@ -10,35 +10,43 @@
 						</tr>
 					</thead>
 					<tbody>
+					<% @basket.orders_products.each do |order_product| %>
+						<input type="hidden" name=""class = "order_product_id" value="<%= order_product.id %>">
 						<tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+										<h4 class="nomargin"><%= order_product.product.name %></h4>
+										<p><%= order_product.product.description %></p>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">$1.99</td>
+							<td data-th="Price">&pound;<%= order_product.product.price %></td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+								<input type="number" class="form-control text-center quantity_value" value="<%= order_product.quantity %>">
+
 							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
+							<td data-th="Subtotal" class="text-center">&pound;<%= order_product.quantity * order_product.price %></td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+
+							<%= link_to(raw('<i class="fa fa-refresh"></i>'), {:id => order_product.id}, class: "btn btn-info btn-sm update_qunatity",remote: true) %>
+
+							<%= link_to(raw('<i class="fa fa-trash-o"></i>'), {:controller => 'basket', :action => 'delete', :id => order_product.id}, class: "btn btn-danger btn-sm") %>
+
 							</td>
 						</tr>
+						<% end %>
+
 					</tbody>
 					<tfoot>
 						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
+							<td class="text-center"><strong>Total <%= @basket.total_price %></strong></td>
 						</tr>
 						<tr>
 							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+							<td class="hidden-xs text-center"><strong>Total &pound;<%= @basket.total_price %></strong></td>
 							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>

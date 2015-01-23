@@ -75,6 +75,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    animate-rails (1.0.7)
+      rails
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.0)
@@ -273,6 +275,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  animate-rails
   autoprefixer-rails
   aws-sdk
   bootstrap-sass (~> 3.3.1)

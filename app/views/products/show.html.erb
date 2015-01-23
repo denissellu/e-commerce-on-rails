@@ -23,10 +23,10 @@
 					<% end %>
 					<hr>
 					<div class="btn-group cart">
-						<button type="button" class="btn btn-success">
-							<%= link_to("Add to Basket", :controller => 'basket', :action => 'add', :id => product.id) %>
+						<!-- <button type="button" class=""> -->
+							<%= link_to("Add to Basket", {:controller => 'basket', :action => 'add', :id => @product.id}, class: "btn btn-success") %>
 
-						</button>
+						<!-- </button> -->
 					</div>
 				</div>
 			</div> 

@@ -12,14 +12,27 @@
  *
  * require_tree .
  * require_self
- * 
+ *= require animate
  */
 
 $white: #fff;
 $grey-ish: #333;
+$bon_jour: #e1e1e1;
+$beige: #f5f5dc;
+$curious_blue: #219fd1;
+$tapa: #777;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "home";
 @import "products";
-@import "basket"
+@import "basket";
+
+.basket_nav{
+font-size: 20px;
+	.basket_count{
+		color:$curious_blue;
+		font-weight: strong;
+		font-size:24px;
+	}
+}
