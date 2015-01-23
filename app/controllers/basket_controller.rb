@@ -5,7 +5,9 @@ class BasketController < ApplicationController
   def show
     # change the order position
     @basket.update_progress(1)
+    @basket.calculate_total
   end
+
 
 
   def add

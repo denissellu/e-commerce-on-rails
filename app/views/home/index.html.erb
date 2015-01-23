@@ -46,7 +46,7 @@
                                         <div class="separator clear-left">
                                             <p class="btn-add">
                                          
-                                            <%= link_to(raw('<i class="fa fa-shopping-cart"></i> Add to Basket'), {:id => ''}, class: "hidden-sm add_to_basket",remote: true) %>
+                                            <%= link_to(raw('<i class="fa fa-shopping-cart"></i> Add to Basket'), {:controller => 'basket', :action => 'add', :id => product.id}, class: "hidden-sm cart",remote: true) %>
 
                                             </p>
                                             <p class="btn-details">

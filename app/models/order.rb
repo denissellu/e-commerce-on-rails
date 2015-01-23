@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
 
   def calculate_total
     self.total_price = orders_products.inject(0.0){|sum, orders_products|
-      sum += orders_products.price
+      sum += orders_products.price * orders_products.quantity
     }
     save!
   end
