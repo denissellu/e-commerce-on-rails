@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   end
   def check_basket
     if user_signed_in?
-      if Order.find_by_id(session[:basket_id])
+      # if Order.find_by_id(session[:basket_id])
+      if !Order.where("id = ? AND status < 3", session[:basket_id]).blank?
         @basket = Order.find_by_id(session[:basket_id])
       else
         @basket = current_user.orders.build

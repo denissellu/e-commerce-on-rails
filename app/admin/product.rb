@@ -6,7 +6,7 @@ ActiveAdmin.register Product do
     f.inputs "Details" do
       f.input :name, :label => "Product Name"
       f.input :description, :label => "Description"
-      f.input :image, :label => "Product Image", :as => :file, :required => false,  :hint => image_tag(f.object.image.url(:medium))
+      # f.input :image, :label => "Product Image", :as => :file, :required => false,  :hint => image_tag(f.object.image.url(:medium))
       f.input :price, :label => "Price £"
       # f.input :availability, :label => "Active / Inactive"
       f.input :availability, as: :datepicker

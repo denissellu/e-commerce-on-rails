@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+	<div class="col-md-offset-5 col-md-3">
+		
+	</div>
+		<h2>Complete order by choosing address</h2>
+	<div>
+		<select name="" id="">
+			<% @addresses.each do |address| %>
+				<option value=""><%= address.address_field %></option>	
+			<% end %>
+		</select>
+		<br>
+		<br>
+		<button type="button" class="btn btn-success">Complete order</button>	
+	</div>
+	<hr>
+	<h3>
+		Or add new address
+		<button class="btn btn-success btn-md" data-title="New" data-toggle="modal" data-target="#add-new"><span class="glyphicon glyphicon-plus"></span></button>
+	</h3>
+<%= render :partial => "address/new_address_modal" %>
+	</div>
+
+</div>

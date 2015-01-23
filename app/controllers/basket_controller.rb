@@ -2,11 +2,15 @@ class BasketController < ApplicationController
 
   before_action :authenticate_user!
 
+  def show
+    # change the order position
+    @basket.update_progress(1)
+  end
+
 
   def add
-
     product = Product.find(params[:id])
-    
+
     # Check to see if the product exist on this order, if so incrment quantity
     order_product = OrdersProduct.product_exsit?(params[:id],session[:basket_id]).first
     if order_product.blank?
@@ -26,12 +30,13 @@ class BasketController < ApplicationController
   end
 
   def ajax_update_quantity
-
-  	update_quantity(params[:order_product_id],params[:quantity])
-
-
+    update_quantity(params[:order_product_id],params[:quantity])
     render :json => params
+  end
 
+  def checkout
+    @addresses = User.find(current_user.id).addresses
+    @basket.update_progress(2)
   end
 
   def delete
@@ -44,7 +49,7 @@ class BasketController < ApplicationController
 
   protected
 
- 
+
 
   def order_products_params(quantity)
     params.require(:OrdersProduct).permit(:quantity => quantity)
