@@ -48,8 +48,6 @@ config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'ec-on-rails',
-      :access_key_id => 'AKIAJKUUQLQDCL6VGCOA',
-      :secret_access_key => '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'
     }
   }
 end
