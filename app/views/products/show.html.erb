@@ -19,16 +19,17 @@
 					<div class="product-price">&pound;<%= @product.price %></div>
 					<% if @product.availability < Date.today%>
 						<div class="product-avaliable">Avaliable</div>
+						<hr>
+						<div class="btn-group cart">
+							<!-- <button type="button" class=""> -->
+								<%= link_to("Add to Basket", {:controller => 'basket', :action => 'add', :id => @product.id}, class: "btn btn-success") %>
+
+							<!-- </button> -->
+						</div>
 					<% else %>
 						<div class="product-notavaliable">Not Avaliable</div>
 					<% end %>
-					<hr>
-					<div class="btn-group cart">
-						<!-- <button type="button" class=""> -->
-							<%= link_to("Add to Basket", {:controller => 'basket', :action => 'add', :id => @product.id}, class: "btn btn-success") %>
-
-						<!-- </button> -->
-					</div>
+					
 				</div>
 			</div> 
 		</div>

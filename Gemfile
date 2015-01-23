@@ -42,15 +42,15 @@ gem 'aws-sdk'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+  gem 'faker'
+  gem 'populator'
+  gem 'fabrication'
+  
 group :development, :test do
   # Used for testing
   gem 'rspec-rails'
   # gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'populator'
   gem 'rspec-its'
-  gem 'fabrication'
   # User simulation
   gem 'capybara'
 end
