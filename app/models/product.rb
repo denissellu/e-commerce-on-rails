@@ -11,14 +11,6 @@ class Product < ActiveRecord::Base
   validates_presence_of :price
   attr_accessor :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
-
-  has_attached_file :image, styles: {
-    thumb: '100x100>',
-    medium: '350x260>'
-  },
-    :default_url => "http://placehold.it/350x261"
-
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :image, :content_type => ["image/jpeg", "image/gif", "image/png"]
+  has_one_attached :image
 
 end
