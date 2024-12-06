@@ -15,8 +15,13 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "localhost",
+    port: 1025,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -43,11 +48,4 @@ config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # Paperclip.options[:command_path] = "A:\\Windows\\System32\\convert.exe"
   Paperclip.options[:command_path] = 'A:/Program Files/ImageMagick-6.8.9-Q16'
-  # config/environments/production.rb
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'ec-on-rails',
-    }
-  }
 end
